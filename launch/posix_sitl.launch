@@ -1,6 +1,12 @@
 <launch>
 
     <!-- Posix SITL environment launch script -->
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="R" default="0"/>
+    <arg name="P" default="0"/>
+    <arg name="Y" default="0"/>
 
     <arg name="vehicle" default="iris"/>
     <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/empty.world"/>
@@ -23,7 +29,7 @@
     </include>
 
     <node name="$(anon vehicle_spawn)" output="screen" pkg="gazebo_ros" type="spawn_model"
-        args="-sdf -file $(arg sdf) -model $(arg vehicle)"/>
+        args="-sdf -file $(arg sdf) -model $(arg vehicle) -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg R) -P $(arg P) -Y $(arg Y)"/>
 
 
 </launch>
